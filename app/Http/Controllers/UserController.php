@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -12,7 +13,7 @@ class UserController extends Controller
             $user = new User();
             $user->name = $request->get('name');
             $user->email = $request->get('email');
-            $user->password = $request->get('password');
+            $user->password = Hash::make($request->get('password'));
             $user->save();
             return response()->json([
                 'status' => 1,
