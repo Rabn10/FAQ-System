@@ -23,3 +23,6 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::post('/questionStore','QuestionController@store');
+
+Route::post('/commentStore','CommentController@store');
+
