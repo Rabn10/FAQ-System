@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'auth'], function () {
     Route::post('/', 'UserController@store');
 });
+
+Route::post('/questionStore','QuestionController@store');
