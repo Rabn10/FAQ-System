@@ -13,16 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
-Route::group(['prefix' => 'auth'], function () {
-    Route::post('/', 'UserController@store');
-});
+// Route::group(['prefix' => 'auth'], function () {
+// });
+
+Route::post('/user', 'UserController@store');
+Route::get('/getUser','UserController@index');
+Route::get('/showUser/{user_id}','UserController@show');
+
+
 
 Route::post('/questionStore','QuestionController@store');
-
 Route::post('/commentStore','CommentController@store');
 

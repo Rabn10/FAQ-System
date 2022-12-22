@@ -7,6 +7,21 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function index()
+    {
+        try {
+            $users = User::get(['id','name','email']);
+            return response()->json(
+                [
+                    'status' => 'success',
+                    'users' => $users
+                ], 200);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
     public function store(Request $request)
     {
         try {
@@ -17,7 +32,7 @@ class UserController extends Controller
             $user->save();
             return response()->json([
                 'status' => 1,
-                'message' => $user
+                'message' => "user created successfully."
             ]);
         }
         catch (\Exception $e) {
