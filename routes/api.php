@@ -32,4 +32,6 @@ Route::get('/getQuestion','QuestionController@getQuestion');
 
 
 Route::post('/commentStore','CommentController@store');
+Route::get('/getComment','CommentController@getComment');
+
 

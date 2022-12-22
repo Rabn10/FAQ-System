@@ -6,21 +6,19 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function getComment()
     {
-        //
+        try {
+            $comments = Comment::get(['id','comment']);
+            return response()->json([
+                'status' => 1,
+                'data' => $comments
+            ]);
+        } catch (\Exception $e) {
+            throw $e;
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -36,7 +34,7 @@ class CommentController extends Controller
             $userComment->save();
             return response()->json([
                 'status' => 1,
-                'message' => $userComment
+                'message' => 'comment inserted.'
             ]);
         }
         catch (\Exception $e) {
