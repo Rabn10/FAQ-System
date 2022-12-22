@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Models\Comment;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function getComment()
+    public function getAllComment()
     {
         try {
             $comments = Comment::get(['id','comment']);
@@ -18,6 +19,21 @@ class CommentController extends Controller
             throw $e;
         }
     }
+
+    public function getComment($id)
+    {
+        // dd($id);
+        try{
+            $comments = Comment::where('question_id',$id)->get(['id','comment']);
+            return response()->json([
+                'status' => 1,
+                'data' => $comments
+            ]);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+    
 
     public function create()
     {

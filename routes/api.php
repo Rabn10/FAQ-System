@@ -32,6 +32,8 @@ Route::get('/getQuestion','QuestionController@getQuestion');
 
 
 Route::post('/commentStore','CommentController@store');
-Route::get('/getComment','CommentController@getComment');
+Route::get('/getAllComment','CommentController@getComment');
+Route::get('/getComment/{question_id}','CommentController@getComment');
+
 
 
