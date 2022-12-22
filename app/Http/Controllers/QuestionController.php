@@ -7,6 +7,20 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
+    public function getQuestion(Request $request)
+    {
+        try {
+            $questions = Question::get(['id','questions']);
+            return response()->json([
+                'status' => 1,
+                'teacher' => $questions
+            ]);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
+
     public function store(Request $request)
     {
         try {
@@ -18,7 +32,7 @@ class QuestionController extends Controller
             $question->save();
             return response()->json([
                 'status' => 1,
-                'message' => $question
+                'message' => 'Question created successfully.'
             ]);
         }
         catch (\Exception $e) {

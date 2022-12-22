@@ -28,5 +28,8 @@ Route::get('/showUser/{user_id}','UserController@show');
 
 
 Route::post('/questionStore','QuestionController@store');
+Route::get('/getQuestion','QuestionController@getQuestion');
+
+
 Route::post('/commentStore','CommentController@store');
 
