@@ -18,7 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->string('questions');
             $table->integer('up_vote')->nullable();
             $table->integer('down_vote')->nullable();
-            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
