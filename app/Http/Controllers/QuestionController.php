@@ -13,7 +13,7 @@ class QuestionController extends Controller
             $questions = Question::get(['id','questions']);
             return response()->json([
                 'status' => 1,
-                'teacher' => $questions
+                'data' => $questions
             ]);
         } catch (\Exception $e) {
             throw $e;
