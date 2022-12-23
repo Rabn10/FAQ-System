@@ -20,6 +20,9 @@ use Illuminate\Http\Request;
 
 // Route::group(['prefix' => 'auth'], function () {
 // });
+Route::post('/login', 'AuthController@login');
+
+
 
 Route::post('/user', 'UserController@store');
 Route::get('/getUser','UserController@index');
