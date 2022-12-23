@@ -45,4 +45,17 @@ class AuthController extends Controller
             throw $e;
         }
     }
+    public function getLoggedUser(Request $request)
+    {
+        try {
+            if (Auth::check()) {
+                $user = User::findOrFail(Auth::id())->only(['id', 'name', 'email']);
+                return response()->json([
+                    'getLoggedUserInfo' => $user
+                ]);
+            }
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
 }

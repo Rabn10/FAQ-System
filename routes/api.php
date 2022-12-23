@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,7 @@ use Illuminate\Http\Request;
 // Route::group(['prefix' => 'auth'], function () {
 // });
 Route::post('/login', 'AuthController@login');
+Route::get('/getLoggedUser','AuthController@getLoggedUser')->middleware('auth:api');
 
 
 
