@@ -35,6 +35,8 @@ Route::get('/showUser/{user_id}','UserController@show');
 
 Route::post('/questionStore','QuestionController@store');
 Route::get('/getQuestion','QuestionController@getQuestion');
+Route::post('/vote/{question_id}','QuestionController@vote');
+
 
 
 Route::post('/commentStore','CommentController@store');
