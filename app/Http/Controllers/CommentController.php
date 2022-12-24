@@ -10,7 +10,7 @@ class CommentController extends Controller
     public function getAllComment()
     {
         try {
-            $comments = Comment::get(['id','comment']);
+            $comments = Comment::get(['id','comment','created_by']);
             return response()->json([
                 'status' => 1,
                 'data' => $comments
@@ -24,7 +24,7 @@ class CommentController extends Controller
     {
         // dd($id);
         try{
-            $comments = Comment::where('question_id',$id)->get(['id','comment']);
+            $comments = Comment::where('question_id',$id)->get(['id','comment','created_by']);
             return response()->json([
                 'status' => 1,
                 'data' => $comments

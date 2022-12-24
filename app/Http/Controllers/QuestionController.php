@@ -21,6 +21,20 @@ class QuestionController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        // dd($id);
+        try{
+            $getquestion = Question::where('id',$id)->get(['id','questions','up_vote','down_vote','created_by']);
+            return response()->json([
+                'status' => 1,
+                'data' => $getquestion
+            ]);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+
 
     public function store(Request $request)
     {
