@@ -11,7 +11,7 @@ class QuestionController extends Controller
     public function getQuestion(Request $request)
     {
         try {
-            $questions = Question::get(['id','questions']);
+            $questions = Question::get(['id','questions','created_by']);
             return response()->json([
                 'status' => 1,
                 'data' => $questions
