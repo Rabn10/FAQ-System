@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    public function getQuestion(Request $request)
+    public function getQuestion()
     {
         try {
-            $questions = Question::get(['id','questions','created_by']);
+            $questions = Question::orderBy('id', 'DESC')->get(['id','questions','created_by']);
             return response()->json([
                 'status' => 1,
                 'data' => $questions
